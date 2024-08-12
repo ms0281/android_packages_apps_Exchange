@@ -58,11 +58,11 @@
         android:name="android.permission.READ_PHONE_STATE"/>
 
     <uses-permission
-        android:name="com.android.email.permission.READ_ATTACHMENT"/>
+        android:name="${applicationId}.permission.READ_ATTACHMENT"/>
     <uses-permission
-        android:name="com.android.email.permission.ACCESS_PROVIDER"/>
+        android:name="${applicationId}.permission.ACCESS_PROVIDER"/>
 
-    <uses-sdk android:targetSdkVersion="23" android:minSdkVersion="14" />
+    <uses-sdk android:targetSdkVersion="33" android:minSdkVersion="14" />
 
     <!-- additional uses -->
 
@@ -132,21 +132,21 @@
               android:value="true"/>
         </provider>
 
-        <activity android:name=".EasCertificateRequestor">
+        <activity android:name=".EasCertificateRequestor" android:exported="false">
             <intent-filter>
                 <action android:name="com.android.email.EXCHANGE_REQUEST_CERT" />
                 <data android:scheme="eas" android:path="/certrequest" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
-        <activity android:name=".SettingsRedirector">
+        <activity android:name=".SettingsRedirector" android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.MANAGE_NETWORK_USAGE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
 
-        <receiver android:name="ExchangeBroadcastReceiver">
+        <receiver android:name="ExchangeBroadcastReceiver" android:exported="false">
             <intent-filter>
                 <action android:name="android.accounts.LOGIN_ACCOUNTS_CHANGED" />
             </intent-filter>

@@ -41,11 +41,13 @@ LOCAL_OVERRIDES_PACKAGES := Exchange
 LOCAL_PRODUCT_MODULE := true
 
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
-LOCAL_SDK_VERSION := 19
+LOCAL_SDK_VERSION := current
 
 LOCAL_JACK_COVERAGE_INCLUDE_FILTER += com.android.exchange.*
 
 LOCAL_REQUIRED_MODULES += default_permissions_com.android.exchange.xml
+
+LOCAL_USES_LIBRARIES := org.apache.http.legacy
 
 include $(BUILD_PACKAGE)
 
